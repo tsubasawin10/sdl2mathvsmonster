@@ -322,7 +322,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1423445670 source:c:\users\administrator\documents\github\sdl2mathvsmonster\01_hello_sdl.cpp
+1488971047 source:c:\users\administrator\documents\github\sdl2mathvsmonster\01_hello_sdl.cpp
+	<SDL.h>
+	<stdio.h>
+
+1488970674 source:c:\users\administrator\documents\github\sdl2mathvsmonster\test.cpp
 	<SDL.h>
 	<stdio.h>
 
