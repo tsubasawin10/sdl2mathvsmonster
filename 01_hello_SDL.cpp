@@ -98,9 +98,32 @@ int main( int argc, char* args[] )
                     if(e.type == SDL_QUIT)
                     {
                         quit = true;
+                    }else if(e.type == SDL_KEYDOWN){
+                        switch(e.key.keysym.sym)
+                        {
+                            case SDLK_UP:
+                                gCurrentSurface = gKeyPressSurface[KEY_PRESS_SURFACE_UP];
+                            break;
+
+                            case SDLK_DOWN:
+                                gCurrentSurface = gKeyPressSurface[KEY_PRESS_SURFACE_DOWN];
+                            break;
+
+                            case SDLK_LEFT:
+                                gCurrentSurface = gKeyPressSurface[KEY_PRESS_SURFACE_LEFT];
+                            break;
+
+                            case SDLK_RIGHT:
+                                gCurrentSurface = gKeyPressSurface[KEY_PRESS_SURFACE_RIGHT];
+                            break;
+
+                            default:
+                                gCurrentSurface = gKeyPressSurface[KEY_PRESS_SURFACE_DEFAULT];
+                            break;
+                        }
                     }
                 }
-                SDL_BlitSurface(gHelloWorld,NULL,gScreenSurface,NULL);
+                SDL_BlitSurface(gCurrentSurface,NULL,gScreenSurface,NULL);
 
                 SDL_UpdateWindowSurface(gWindow);
             }
@@ -108,6 +131,12 @@ int main( int argc, char* args[] )
     }
     close();
     return 0;
-
+}
+SDL_Surface* loadSurface(std::string path){
+    SDL_Surface* loadedSurface = SDL_LoadBMP(path.c_str());
+    if(loadedSurface == NULL)
+    {
+        printf( "Unable to load image %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
+    }
 }
 
