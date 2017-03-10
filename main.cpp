@@ -1,9 +1,10 @@
-/*This source code copyrighted by Lazy Foo' Productions (2004-2015)
-and may not be redistributed without written permission.*/
-
-//Using SDL and standard IO
 #include <SDL.h>
 #include <stdio.h>
+#include <iostream>
+#include <sdl_image.h>
+#include <SDL_ttf.h>
+#include "SDL_mixer.h"
+
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
@@ -11,39 +12,46 @@ const int SCREEN_HEIGHT = 480;
 
 int main( int argc, char* args[] )
 {
-    std::cout << "hello";
-	/*//The window we'll be rendering to
+    bool success  = true;
 	SDL_Window* window = NULL;
+	SDL_Renderer* renderer = NULL;
 
-	//The surface contained by the window
-	SDL_Surface* screenSurface = NULL;
 
-	//Initialize SDL
+
 	if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
 	{
 		printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
+		success = false;
 	}
 	else
 	{
-		//Create window
 		window = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
 		if( window == NULL )
 		{
 			printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
+			success = false;
 		}
 		else
 		{
-			//Get window surface
-			screenSurface = SDL_GetWindowSurface( window );
+			renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+			if(renderer == NULL){
+                printf( "Renderer could not be created! SDL_Error: %s\n", SDL_GetError() );
+                success = false;
+			}else{
+                SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
-			//Fill the surface white
-			SDL_FillRect( screenSurface, NULL, SDL_MapRGB( screenSurface->format, 0xFF, 0xFF, 0xFF ) );
+                if(!IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG){
+                    printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
+                    success = false;
+                }
 
-			//Update the surface
-			SDL_UpdateWindowSurface( window );
+                if(TTF_Init() != 0){
+                    printf( "SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError() );
+                    success = false;
+                }
 
-			//Wait two seconds
-			SDL_Delay( 2000 );
+                if(Mix_OpenAudio())
+			}
 		}
 	}
 
@@ -51,7 +59,7 @@ int main( int argc, char* args[] )
 	SDL_DestroyWindow( window );
 
 	//Quit SDL subsystems
-	SDL_Quit();*/
+	SDL_Quit();
 
 	return 0;
 }

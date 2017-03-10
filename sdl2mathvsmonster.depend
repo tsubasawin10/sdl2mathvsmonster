@@ -1,7 +1,10 @@
 # depslib dependency file v1.0
-1488899406 source:c:\users\administrator\documents\github\sdl2mathvsmonster\main.cpp
+1489136086 source:c:\users\administrator\documents\github\sdl2mathvsmonster\main.cpp
 	<SDL.h>
 	<stdio.h>
+	<iostream>
+	<sdl_image.h>
+	<SDL_ttf.h>
 
 1476935894 c:\mingw_dev_lib\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -322,11 +325,23 @@
 	"begin_code.h"
 	"close_code.h"
 
-1489027382 source:c:\users\administrator\documents\github\sdl2mathvsmonster\01_hello_sdl.cpp
+1489130300 source:c:\users\administrator\documents\github\sdl2mathvsmonster\01_hello_sdl.cpp
 	<SDL.h>
 	<stdio.h>
+	<string>
 
 1488970674 source:c:\users\administrator\documents\github\sdl2mathvsmonster\test.cpp
 	<SDL.h>
 	<stdio.h>
+
+1451800373 c:\mingw_dev_lib\include\sdl2\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1454362933 c:\mingw_dev_lib\include\sdl2\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
 

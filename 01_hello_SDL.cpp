@@ -108,7 +108,7 @@ SDL_Surface* loadSurface(std::string path){
     return loadedSurface;
 }
 
-int main( int argc, char* args[] )
+int main2( int argc, char* args[] )
 {
     if(!init())
     {
